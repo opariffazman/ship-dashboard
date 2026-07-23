@@ -27,6 +27,12 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ env.IMAGE_NAME }}:latest
+  deploy:
+    needs: build-push
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v7
+      - run: docker compose up -d --pull always
 
 permissions:
   packages: write
