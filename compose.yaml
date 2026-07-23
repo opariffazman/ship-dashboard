@@ -1,6 +1,6 @@
 services:
   board:
-    build: . # replace this to use your built image instead
+    image: ghcr.io/opariffazman/ship-dashboard
     ports:
       - "80:3000"
     environment:
